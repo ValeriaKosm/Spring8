@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title style="text-align: center">Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<h1 style="text-align: center">Your own data:</h1>
+<div>
+<table class="table table-danger">
+    <thead class="table-dark">
+    <tr>
+        <td>ID</td>
+        <td>Login</td>
+        <td>Password</td>
+        <td>Email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="user : ${listUsers}">
+        <tr>
+            <td>[[${user.getIdUser}]]</td>
+            <td>[[${user.getName}]]</td>
+            <td>[[${user.getPassword}]]</td>
+            <td>[[${user.getEmail}]]</td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+    <a class="h5" th:href="@{/users/logOut/}">LogOut</a>
+</div>
+</body>
+</html>
